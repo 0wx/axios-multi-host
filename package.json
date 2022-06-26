@@ -1,6 +1,6 @@
 {
   "name": "axios-multi-host",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Multiple Host for axios",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
