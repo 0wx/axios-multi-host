@@ -1,0 +1,50 @@
+{
+  "name": "axios-multi-host",
+  "version": "0.0.1",
+  "description": "Multiple Host for axios",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.(js|ts)\"",
+    "lint": "eslint src --ext .js,.ts",
+    "lint:fix": "eslint src --fix --ext .js,.ts",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "release:major": "changelog -M && git add CHANGELOG.md && git commit -S -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --all && git push --tags",
+    "release:minor": "changelog -m && git add CHANGELOG.md && git commit -S -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --all && git push --tags",
+    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -S -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --all && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0wx/axios-multi-host.git"
+  },
+  "keywords": [
+    "axios",
+    "typescript",
+    "host"
+  ],
+  "author": "Gilang Ramadhan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/0wx/axios-multi-host/issues"
+  },
+  "homepage": "https://github.com/0wx/axios-multi-host#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.27.0",
+    "@typescript-eslint/parser": "5.27.0",
+    "eslint": "8.17.0",
+    "generate-changelog": "^1.8.0",
+    "prettier": "2.6.2",
+    "typescript": "4.7.3"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}
