@@ -1,3 +1,9 @@
+#### 0.0.3 (2022-06-26)
+
+##### New Features
+
+*  add `updateList` and `getList` ([f3aebcdd](https://github.com/0wx/axios-multi-host/commit/f3aebcddd17a774467e6e7a5ad7a2fc5b8d2dede))
+
 #### 0.0.2 (2022-06-26)
 
 ##### Bug Fixes
