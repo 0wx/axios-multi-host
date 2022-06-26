@@ -114,15 +114,25 @@ export class AxiosMultiHost {
     }
   }
 
+  /**
+   * It's a function that stops the repetitive check.
+   */
   public stopRepetitiveCheck = () => {
     this.isStop = true
   }
 
+  /**
+   * It's a function that takes an AxiosRequestConfig and returns an AxiosRequestConfig, and it's used as a middleware for axios.
+   */
   public middleware = (config: AxiosRequestConfig) => {
     config.baseURL = this.choosen.host.href
     return config
   }
 
+  /**
+   * It's a function that takes an error and checks if the error is because of the host is down,
+   * if it is, it will change the host to the next one, and if it's not, it will reject the error.
+   */
   public error = (error: AxiosError) => {
     if (this.changeOnProcess) return Promise.reject(error)
     return new Promise((_resolve, reject) => {
@@ -142,4 +152,29 @@ export class AxiosMultiHost {
   public onAllDown = (callback: () => void) => {
     this.cb = callback
   }
+
+  /**
+   * It's a function that takes a list of urls and updates the list of the class.
+   * @param {MultiHostList} list - MultiHostList
+   */
+  public updateList = (list: MultiHostList) => {
+    this.list = list.map((value) => {
+      if (typeof value === 'string') {
+        return {
+          host: new URL(value),
+          check: new URL(value),
+        }
+      }
+      return {
+        host: new URL(value.host),
+        check: new URL(value.check),
+      }
+    })
+  }
+
+  /**
+   * It's a getter function that returns the list of the urls.
+   * @returns {URLConfig[]} `list` - URLConfig[]
+   */
+  public getList = () => this.list
 }

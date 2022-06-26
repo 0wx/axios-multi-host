@@ -30,7 +30,6 @@ note: `host.repetitiveCheck()` when invoked will repetitively check every host
 and choose the first one from the list that is up, you can pass configuration
 of this function in the example below.
 
-
 ## Configuration
 
 #### configuration on `repetitiveCheck`
@@ -81,4 +80,16 @@ const list = [
 host.onAllDown(() => {
   console.log('all host down')
 })
+```
+
+#### Update List
+
+```javascript
+host.updateList(['https://google.com', 'https://bing.com'])
+```
+
+#### Get current list
+
+```javascript
+host.getList()
 ```
