@@ -34,7 +34,7 @@ export interface MultiHostConfig {
  * and then it will check each host to see if it's up,
  * and if it is, it will put it at the front of the list
  */
-export class MultiHost {
+export class AxiosMultiHost {
   private list: URLConfig[]
   private interval: number
   private isStop: boolean
